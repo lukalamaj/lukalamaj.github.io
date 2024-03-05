@@ -1,0 +1,84 @@
+<html>
+<head>
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding-top: 50px; /* This adds some space at the top of the page */
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+        }
+        .step {
+            display: none;
+            background-color: #ffffff;
+            padding: 20px;
+            width: 50%; /* Adjust the width of the form */
+            border-radius: 4px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        }
+        .active {
+            display: block;
+        }
+        input[type="text"], input[type="date"], input[type="number"], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form id="regenalifeForm" action="submit_form.php" method="post">
+        <div class="step active" id="step1">
+            <label for="name">Patient Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="dob">DOB:</label><br>
+            <input type="date" id="dob" name="dob"><br>
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age"><br>
+            <label for="sex">Sex:</label><br>
+            <select id="sex" name="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select><br>
+            <label for="address">Address:</label><br>
+            <input type="text" id="address" name="address"><br>
+            <label for="occupation">Occupation:</label><br>
+            <input type="text" id="occupation" name="occupation"><br>
+            <label for="mobile">Mobile:</label><br>
+            <input type="text" id="mobile" name="mobile"><br>
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email"><br>
+            <!-- Add more fields as necessary -->
+            <button type="button" onclick="nextStep(2)">Next</button>
+        </div>
+        <!-- Add more steps as necessary -->
+    </form>
+    <script>
+        function nextStep(step) {
+            var currentStep = document.querySelector('.step.active');
+            currentStep.classList.remove('active');
+            var nextStep = document.getElementById('step' + step);
+            nextStep.classList.add('active');
+        }
+    </script>
+</body>
+</html>
